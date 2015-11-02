@@ -24,6 +24,8 @@ class GameLoop : private EventHandler
 {
 private:
 	bool m_bRunning; // If this is true, the game loop will continue to run
+	bool moving = false;
+	//bool fire = false;
 
 public:
 	// The game loop
@@ -36,6 +38,11 @@ public:
 
 	// An update-like function that gets called directly after 'LateUpdate'
 	void Draw();
+	// A function used to calculate the movement of an object.
+	void Move();
+
+	// A function used to launch a shape across the screen.
+	//void Fire();
 
 	// Gets called automatically by 'EventHandler' when a key is pressed
 	void OnKeyDown(const SDL_Keycode ac_sdlSym, const Uint16 ac_uiMod, const SDL_Scancode ac_sdlScancode);
@@ -49,6 +56,5 @@ public:
 	// The default de-constructor
 	~GameLoop();
 };
-
 
 #endif // _GAMELOOP_H_
